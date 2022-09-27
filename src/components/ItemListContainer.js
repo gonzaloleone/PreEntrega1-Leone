@@ -1,6 +1,6 @@
 function ItemListContainer({greeting}){
     return (
-        <h1>{greeting}</h1>
+        <h1 style={{"text-decoration": "underline"}}>{greeting}</h1>
     )
 }
 
