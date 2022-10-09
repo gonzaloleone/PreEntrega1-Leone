@@ -11,7 +11,7 @@ const Item = ({ prod }) => {
                 <h2>{prod.title}</h2>
                 <h4>${prod.price}.-</h4>
                 <h5>#{prod.category}</h5>
-                <Link to={`/item/${prod.id}`}>Ver detalle</Link>
+                <Link to={`/item/${prod.id}`} className="detalle">COMPRAR</Link>
             </div>
         </article>
     );
