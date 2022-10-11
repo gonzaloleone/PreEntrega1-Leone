@@ -4,19 +4,11 @@ const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
 
     const sumar = () => {
-        // if (count < props.stock) {
-        //     setCount(count + 1);
-        // }
-
         count < props.stock && setCount(count + 1);
-        // count < props.stock
-        //     ? setCount(count + 1)
-        //     : alert('Máximo stock alcanzado');
     };
 
     const restar = () => {
         count > props.initial && setCount(count - 1);
-        //setCount(count - 1);
     };
 
     return (

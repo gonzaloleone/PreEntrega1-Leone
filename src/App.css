@@ -67,7 +67,6 @@
 
 .card:hover {
   box-shadow: none;
-  cursor: pointer;
 }
 
 .card img {
