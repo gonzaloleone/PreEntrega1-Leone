@@ -1,6 +1,20 @@
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
+    const [unidades, setUnidades] = useState(0);
+
+    const { addToCart } = useContext(CartContext);
+
+    const prueba = (numero) => {
+        //console.log(`añadiste ${numero}`);
+        setUnidades(numero);
+        //item, numero
+        addToCart(item, numero);
+    };
+
     return (
         <div className="container-detail">
             <img src={item.img} alt="" />
@@ -11,7 +25,12 @@ const ItemDetail = ({ item }) => {
                     rem, consequatur accusamus dicta incidunt sapiente cum ipsa,
                     ducimus
                 </p>
-                <ItemCount stock={10} initial={1} />
+
+                {unidades === 0 ? (
+                    <ItemCount prueba={prueba} stock={item.stock} initial={1} />
+                ) : (
+                    <Link to="/cart">Ir al carrito</Link>
+                )}
             </div>
         </div>
     );

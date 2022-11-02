@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 
 const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
-
+    const { prueba } = props;
     const sumar = () => {
         count < props.stock && setCount(count + 1);
     };
 
     const restar = () => {
         count > props.initial && setCount(count - 1);
+    };
+
+    const add = () => {
+        prueba(count);
     };
 
     return (
@@ -22,7 +26,7 @@ const ItemCount = (props) => {
                     -
                 </button>
             </div>
-            <button className="add-btn">Agregar al carrito</button>
+            <button onClick={add} className="add-btn">Agregar al carrito</button>
         </div>
     );
 };

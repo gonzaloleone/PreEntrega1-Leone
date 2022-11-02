@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList'; //-> import por default
 import { products } from '../mock/productsMock';
 import { useParams } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
-    //estado
+    const [loading, setLoading] = useState(true);
 
     const {categoryName} = useParams();
 
@@ -28,10 +29,28 @@ const ItemListContainer = () => {
             })
             .catch((error) => {
                 console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
+
+            return () => setLoading(true);
     }, [categoryName]);
 
-    //console.log(items);
+    if (loading) {
+        return (
+            <div
+                style={{
+                    minHeight: '80vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+            >
+                <HashLoader style={{ marginTop: '100px' }}/>
+                {/* <h1>Cargando...</h1> */}
+            </div>
+        );
+    }
 
     return (
         <div className="item-list-container">
