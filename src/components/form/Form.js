@@ -38,15 +38,12 @@ const Form = () => {
     return (
         <div
             style={{
-                minHeight: '70vh',
+                minHeight: '80vh',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
             }}
         >
-            <div>
-                <button>Click!</button>
-            </div>
             <form onSubmit={handleSubmit} action="">
                 <input
                     type="text"

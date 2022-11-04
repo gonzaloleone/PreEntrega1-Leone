@@ -5,10 +5,10 @@ function NavBar() {
     return (
         <div className='contenedor'>
             <Link to="/">
-                <h1 style={{color: 'white'}}>GL INDUMENTARIA</h1>
+                <h1 style={{color: 'white', marginLeft:'10px'}}>GL INDUMENTARIA</h1>
             </Link>
             <nav className="navBar">
-            <ul className= "navUl">
+            <ul>
                 <li className= "navLi">
                     <NavLink to="/category/remeras" className= "navLink">REMERAS</NavLink>
                 </li>
@@ -17,9 +17,6 @@ function NavBar() {
                 </li>
                 <li className= "navLi">
                     <NavLink to="/category/jeans" className= "navLink">JEANS</NavLink>
-                </li>
-                <li className= "navLi">
-                    <NavLink to="/category/contacto" className= "navLink">CONTACTO</NavLink>
                 </li>
                 <li className= "navLi">
                     <NavLink to="/cart" className= "navLink"><CartWidget/></NavLink>

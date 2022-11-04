@@ -8,21 +8,66 @@ const Provider = ({ children }) => {
     const addToCart = (item, cantidad) => {
         const producto = { ...item, cantidad };
         if (isInCart(producto.id)) {
-            alert('Ya está en el carrito flaco, sumale la cantidad');
+            sumarCantidad(producto);
         } else {
             setCart([...cart, producto]);
         }
 
     };
 
+    const sumarCantidad = (prodAgregado) => {
+        const carritoActualizado = cart.map((prodDelCart) => {
+            if (prodDelCart.id === prodAgregado.id) {
+                const prodActualizado = {
+                    ...prodDelCart,
+                    cantidad: prodAgregado.cantidad,
+                };
+                return prodActualizado;
+            } else {
+                return prodDelCart;
+            }
+        });
+
+        setCart(carritoActualizado);
+    };
+
     const isInCart = (id) => cart.some((prod) => prod.id === id);
 
     const deleteAll = () => setCart([]);
 
-    console.log(cart);
+    const deleteOne = (id) => {
+        const prodFiltrados = cart.filter((prod) => prod.id !== id);
+        setCart(prodFiltrados);
+    };
+
+    const totalUnidades = () => {
+        let acc = 0;
+        const copia = [...cart];
+        copia.forEach((prod) => {
+            acc = acc + prod.cantidad;
+        });
+        return acc;
+    };
+
+    const precioTotal = () => {
+        let cont = 0;
+        const copy = [...cart];
+        copy.forEach((prod) => {
+            cont = cont + prod.price * prod.cantidad;
+        });
+        return cont;
+    };
+
+     //sumar precio total
+
+     const getProductQuantity = (id) => {
+        const product = cart.find((prod) => prod.id === id);
+        return product?.cantidad;
+    };
+
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, deleteAll }}>
+        <CartContext.Provider value={{ cart, totalUnidades, addToCart, deleteAll, deleteOne, getProductQuantity, precioTotal }}>
             {children}
         </CartContext.Provider>
     );

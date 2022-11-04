@@ -1,33 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import { products } from '../mock/productsMock';
 import { useParams } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
+import { collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '../services/firebaseConfig';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
-    //estado
+    const [loading, setLoading] = useState(true);
     const {id}= useParams()
 
     useEffect(() => {
-        const traerProducto = () => {
-            return new Promise((res, rej) => {
-                const producto = products.find((prod) => prod.id === Number(id));
+        const collectionProd = collection(db, 'productos');
+        const ref = doc(collectionProd, id);
 
-                setTimeout(() => {
-                    res(producto);
-                }, 2000);
-            });
-        };
-        traerProducto()
+        getDoc(ref)
             .then((res) => {
-                setItem(res);
+                //console.log(res);
+                setItem({
+                    id: res.id,
+                    ...res.data(),
+                });
             })
             .catch((error) => {
                 console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
+
+            return () => setLoading(true);
     }, [id]);
 
-    console.log(item);
+    if (loading) {
+        return (
+            <div
+                style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}
+            >
+                <HashLoader style={{ marginTop: '100px' }}/>
+            </div>
+        );
+    }
+
 
     return (
         <div className="item-list-container">

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ItemList from './ItemList'; //-> import por default
-import { products } from '../mock/productsMock';
+import ItemList from './ItemList'; 
 import { useParams } from 'react-router-dom';
 import HashLoader from "react-spinners/HashLoader";
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../services/firebaseConfig';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -11,21 +12,21 @@ const ItemListContainer = () => {
     const {categoryName} = useParams();
 
     useEffect(() => {
-        const traerProductos = () => {
-            return new Promise((res, rej) => {
-                const prodFiltrados = products.filter(
-                    (prod) => prod.category === categoryName
-                )
+        const collectionProd = collection(db, 'productos');
+        //const q = query(collectionProd, where('category', '==', categoryName));
 
-                const prod = categoryName ? prodFiltrados : products;
-                setTimeout(() => {
-                    res(prod);
-                }, 2000);
-            });
-        };
-        traerProductos()
+        getDocs(collectionProd)
             .then((res) => {
-                setItems(res);
+                //console.log(res.docs);
+                //.data()
+                const products = res.docs.map((prod) => {
+                    return {
+                        id: prod.id,
+                        ...prod.data(),
+                    };
+                });
+                //console.log(products);
+                setItems(products);
             })
             .catch((error) => {
                 console.log(error);
@@ -33,21 +34,15 @@ const ItemListContainer = () => {
             .finally(() => {
                 setLoading(false);
             });
-
-            return () => setLoading(true);
+        return () => setLoading(true);
     }, [categoryName]);
 
     if (loading) {
         return (
             <div
-                style={{
-                    minHeight: '80vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                }}
+                style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}
             >
                 <HashLoader style={{ marginTop: '100px' }}/>
-                {/* <h1>Cargando...</h1> */}
             </div>
         );
     }
