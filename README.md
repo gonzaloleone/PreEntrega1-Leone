@@ -11,14 +11,14 @@
 ### Checkout
 ![](/public/img/PaginaWeb5.png)
 
-Pagina web dedicada exclusivamente a la compra de prendas para hombre. Cuenta con productos cargadaos y distintas rutas navegables junto con otras diversas funcionalidades y opciones adaptadas de la mejor manera posible para lograr una excelente experiencia de usuario.
+Pagina web dedicada exclusivamente a la compra de prendas para hombre. Cuenta con productos cargados y distintas rutas navegables junto con otras diversas funcionalidades y opciones adaptadas de la mejor manera posible para lograr una excelente experiencia de usuario.
 
 ## Funcionalidades del proyecto
 
 - Se puede navegar por distintas rutas
 - Se puede acceder al detalle de cada producto
 - Se puede agregar al carrito un determinado stock del producto
-- Se pueden eliminar los items agregados al carito
+- Se pueden eliminar los items agregados al carrito
 - Se puede realizar un ckeckout de la compra
 - Al completar el formulario y enviarlo se obtiene un numero de seguimiento
 
