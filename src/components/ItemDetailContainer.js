@@ -7,16 +7,15 @@ import { db } from '../services/firebaseConfig';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [loader, setLoader] = useState(true);
     const {id}= useParams()
 
     useEffect(() => {
-        const collectionProd = collection(db, 'productos');
-        const ref = doc(collectionProd, id);
+        const prodCollection = collection(db, 'productos');
+        const ref = doc(prodCollection, id);
 
         getDoc(ref)
             .then((res) => {
-                //console.log(res);
                 setItem({
                     id: res.id,
                     ...res.data(),
@@ -26,17 +25,15 @@ const ItemDetailContainer = () => {
                 console.log(error);
             })
             .finally(() => {
-                setLoading(false);
+                setLoader(false);
             });
 
-            return () => setLoading(true);
+            return () => setLoader(true);
     }, [id]);
 
-    if (loading) {
+    if (loader) {
         return (
-            <div
-                style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}
-            >
+            <div style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}>
                 <HashLoader style={{ marginTop: '100px' }}/>
             </div>
         );
@@ -44,7 +41,7 @@ const ItemDetailContainer = () => {
 
 
     return (
-        <div className="item-list-container">
+        <div className="contenedor-itemList">
             <ItemDetail item={item} />
         </div>
     );

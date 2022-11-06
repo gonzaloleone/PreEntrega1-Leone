@@ -6,13 +6,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ item }) => {
-    const [unidades, setUnidades] = useState(0);
+    const [prodUnidades, setProdUnidades] = useState(0);
 
-    const { addToCart, getProductQuantity } = useContext(CartContext);
+    const { addCart, prodQuantity } = useContext(CartContext);
 
     const prueba = (numero) => {
-        setUnidades(numero);
-        addToCart(item, numero);
+        setProdUnidades(numero);
+        addCart(item, numero);
         toast.success('Producto agregado!', {
             position: "bottom-right",
             autoClose: 4000,
@@ -25,10 +25,10 @@ const ItemDetail = ({ item }) => {
             });
     };
 
-    const quantity = getProductQuantity(item.id);
+    const quantity = prodQuantity(item.id);
 
     return (
-        <div className="container-detail">
+        <div className="detail-contenedor">
             <ToastContainer 
                 position="bottom-right"
                 autoClose={5000}
@@ -45,12 +45,10 @@ const ItemDetail = ({ item }) => {
             <div>
                 <h2>{item.title}</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-                    rem, consequatur accusamus dicta incidunt sapiente cum ipsa,
-                    ducimus
+                    Producto importado y distribuido en Argentina. Excelente confort y calidad de primera marca. Fabricado con los mejores materiales del mercado para brindar la mayor comodidad y resistencia posible.
                 </p>
 
-                {unidades === 0 ? (
+                {prodUnidades === 0 ? (
                     <ItemCount prueba={prueba} stock={item.stock} initial={quantity} />
                 ) : (
                     <Link to="/cart"><h1>Ir al carrito</h1></Link>

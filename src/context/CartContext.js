@@ -5,7 +5,7 @@ export const CartContext = createContext();
 const Provider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (item, cantidad) => {
+    const addCart = (item, cantidad) => {
         const producto = { ...item, cantidad };
         if (isInCart(producto.id)) {
             sumarCantidad(producto);
@@ -16,29 +16,29 @@ const Provider = ({ children }) => {
     };
 
     const sumarCantidad = (prodAgregado) => {
-        const carritoActualizado = cart.map((prodDelCart) => {
+        const carritoAct = cart.map((prodDelCart) => {
             if (prodDelCart.id === prodAgregado.id) {
-                const prodActualizado = {
+                const prodAct = {
                     ...prodDelCart,
                     cantidad: prodAgregado.cantidad,
                 };
-                return prodActualizado;
+                return prodAct;
             } else {
                 return prodDelCart;
             }
         });
 
-        setCart(carritoActualizado);
+        setCart(carritoAct);
     };
-
-    const isInCart = (id) => cart.some((prod) => prod.id === id);
-
-    const deleteAll = () => setCart([]);
 
     const deleteOne = (id) => {
         const prodFiltrados = cart.filter((prod) => prod.id !== id);
         setCart(prodFiltrados);
     };
+
+    const deleteAll = () => setCart([]);
+
+    const isInCart = (id) => cart.some((prod) => prod.id === id);
 
     const totalUnidades = () => {
         let acc = 0;
@@ -58,16 +58,14 @@ const Provider = ({ children }) => {
         return cont;
     };
 
-     //sumar precio total
-
-     const getProductQuantity = (id) => {
+     const prodQuantity = (id) => {
         const product = cart.find((prod) => prod.id === id);
         return product?.cantidad;
     };
 
 
     return (
-        <CartContext.Provider value={{ cart, totalUnidades, addToCart, deleteAll, deleteOne, getProductQuantity, precioTotal }}>
+        <CartContext.Provider value={{ cart, totalUnidades, addCart, deleteAll, deleteOne, prodQuantity, precioTotal }}>
             {children}
         </CartContext.Provider>
     );

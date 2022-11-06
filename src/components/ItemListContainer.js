@@ -7,48 +7,46 @@ import { db } from '../services/firebaseConfig';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loader, setLoader] = useState(true);
 
     const {categoryName} = useParams();
 
     useEffect(() => {
-        const collectionProd = collection(db, 'productos');
-        //const q = query(collectionProd, where('category', '==', categoryName));
+        const prodCollection = collection(db, 'productos');
+        
+        const referencia = categoryName
+            ? query(prodCollection, where('category', '==', categoryName))
+            : prodCollection;
 
-        getDocs(collectionProd)
+        getDocs(referencia)
             .then((res) => {
-                //console.log(res.docs);
-                //.data()
                 const products = res.docs.map((prod) => {
                     return {
                         id: prod.id,
                         ...prod.data(),
                     };
                 });
-                //console.log(products);
                 setItems(products);
             })
             .catch((error) => {
                 console.log(error);
             })
             .finally(() => {
-                setLoading(false);
+                setLoader(false);
             });
-        return () => setLoading(true);
+        return () => setLoader(true);
     }, [categoryName]);
 
-    if (loading) {
+    if (loader) {
         return (
-            <div
-                style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}
-            >
+            <div style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center',}}>
                 <HashLoader style={{ marginTop: '100px' }}/>
             </div>
         );
     }
 
     return (
-        <div className="item-list-container">
+        <div className="contenedor-itemList">
             <main>
                 <ItemList items={items} />
             </main>

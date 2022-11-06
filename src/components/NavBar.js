@@ -3,7 +3,7 @@ import {Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
     return (
-        <div className='contenedor'>
+        <div className='contenedor-nav'>
             <Link to="/">
                 <h1 style={{color: 'white', marginLeft:'10px'}}>GL INDUMENTARIA</h1>
             </Link>

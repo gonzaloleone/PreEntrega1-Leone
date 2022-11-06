@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react';
 const ItemCount = ({ stock, initial = 1, prueba }) => {
     const [count, setCount] = useState(initial);
     
-    
+    const add = () => {
+        prueba(count);
+    };
+
     const sumar = () => {
         count < stock && setCount(count + 1);
     };
@@ -12,17 +15,14 @@ const ItemCount = ({ stock, initial = 1, prueba }) => {
         count > 1 && setCount(count - 1);
     };
 
-    const add = () => {
-        prueba(count);
-    };
 
     useEffect(() => {
         setCount(initial);
     }, [initial]);
 
     return (
-        <div className="container-count">
-            <div className="count-btn">
+        <div className="count-contenedor">
+            <div className="btn-count">
                 <button disabled={count === stock} onClick={sumar}>
                     +
                 </button>
@@ -31,7 +31,7 @@ const ItemCount = ({ stock, initial = 1, prueba }) => {
                     -
                 </button>
             </div>
-            <button onClick={add} className="add-btn">Agregar al carrito</button>
+            <button onClick={add} className="btn-addCart">Agregar al carrito</button>
         </div>
     );
 };

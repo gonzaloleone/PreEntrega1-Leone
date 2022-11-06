@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# E-commerce "GL Indumentaria"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Home
+![](/public/img/PaginaWeb1.png)
+### Categorias
+![](/public/img/PaginaWeb3.png)
+### Detalle del producto
+![](/public/img/PaginaWeb2.png)
+### Carrito de compras
+![](/public/img/PaginaWeb4.png)
+### Checkout
+![](/public/img/PaginaWeb5.png)
 
-## Available Scripts
+Pagina web dedicada exclusivamente a la compra de prendas para hombre. Cuenta con productos cargadaos y distintas rutas navegables junto con otras diversas funcionalidades y opciones adaptadas de la mejor manera posible para lograr una excelente experiencia de usuario.
 
-In the project directory, you can run:
+## Funcionalidades del proyecto
 
-### `npm start`
+- Se puede navegar por distintas rutas
+- Se puede acceder al detalle de cada producto
+- Se puede agregar al carrito un determinado stock del producto
+- Se pueden eliminar los items agregados al carito
+- Se puede realizar un ckeckout de la compra
+- Al completar el formulario y enviarlo se obtiene un numero de seguimiento
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Librerias utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React-router-dom
+- [React-toastify](https://www.npmjs.com/package/react-toastify)
+Utilizado para el cartel al agregar producto al carrito de compras
+- [React-spinners](https://www.npmjs.com/package/react-spinners)
+Utiliazado para el loader de la pagina
+- [React-fontawesome](https://fontawesome.com/v5/docs/web/use-with/react)
+Utilizado para el ícono del carrito de compras
+- [Firebase](https://firebase.google.com/?hl=es) Es donde estan cargados los productos y donde llega la informacion de la compra
 
-### `npm test`
+## Para correr el proyecto local:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clonar el repositorio
 
-### `npm run build`
+```
+git clone https://github.com/gonzaloleone/ProyectoFinal-Leone.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Abrirlo en algun editor de codigo e instalar las dependencias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Correr el proyecto en local
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm start
+```

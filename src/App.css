@@ -4,23 +4,19 @@
   
 }
 
-/*NavBar*/
-.contenedor{
+
+.contenedor-nav{
   display: flex;
   background:rgb(0, 0, 0);
-  
-  
 }
 
 .navBar{
   color:white;
   margin-left: 30%;
-  
 }
 
 .navLi{
   display: inline-block ;
-
 }
 
 .navLink{
@@ -51,16 +47,16 @@
   margin-top: 20px;
 }
 
-/*ItemListContainer*/
 
-.item-list-container {
+
+.contenedor-itemList{
   display: flex;
   justify-content: center;
   margin: 40px;
   min-height: 80vh;
 }
 
-.item-list {
+.itemList{
   width: 1000px;
   display: flex;
   justify-content: center;
@@ -68,8 +64,8 @@
 }
 
 
-/*Card*/
-.card {
+
+.card{
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
@@ -77,30 +73,29 @@
   box-shadow: 5px 5px 10px 2px #504d4d;
   max-width: 30%;
   border-radius: 8px;
-  
 }
 
-.card:hover {
+.card:hover{
   box-shadow: none;
 }
 
-.card-info {
+.info-card{
   padding: 8px 12px;
   background-color: rgb(180, 206, 245);
 }
 
-.card img {
+.card img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card-info h4 {
+.info-card h4{
   margin: 5px 0px;
   font-size: 1.3em;
 }
 
-.card-info h5 {
+.info-card h5{
   color: rgb(0, 0, 0);
   background-color: white;
   display: inline-block;
@@ -110,9 +105,9 @@
   font-size: 15px;
 }
 
-/* Item count */
 
-.container-count {
+
+.count-contenedor{
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -121,19 +116,19 @@
   padding: 8px;
 }
 
-.count-btn button:disabled {
+.btn-count button:disabled{
   opacity: 0.3;
   cursor: not-allowed;
 }
 
-.count-btn {
+.btn-count{
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
 }
 
-.count-btn button {
+.btn-count button{
   background-color: rgb(83, 82, 82);
   color: black;
   border: none;
@@ -143,11 +138,11 @@
   cursor: pointer;
 }
 
-.count-btn p {
+.btn-count p{
   font-size: 30px;
 }
 
-.add-btn {
+.btn-addCart {
   background-color: rgb(94, 93, 93);
   color: white;
   font-size: 30px;
@@ -156,7 +151,6 @@
   padding: 15px;
   cursor: pointer;
 }
-
 
 .active{
   background-color: white;
@@ -173,13 +167,13 @@
   
 }
 
-/* CART */
 
-.cart-container {
+
+.contenedor-cart{
   min-height: 80vh;
 }
 
-.cart-detail {
+.detalle-cart{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -193,12 +187,12 @@
   background-color: rgb(180, 206, 245);
 }
 
-.cart-detail img {
+.detalle-cart img{
   border-radius: 40px;
   border: 2px solid rgb(0, 0, 0);
 }
 
-.cart-detail button {
+.detalle-cart button{
   background-color: #ee1f1f;
   border: none;
   border-radius: 30px;
@@ -209,13 +203,13 @@
   cursor: pointer;
 }
 
-.cart-detail-info {
+.info-cart{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.cart-detail-info h2 {
+.info-cart h2{
   background-color: white;
   border-radius: 20px;
   padding: 8px 40px;
@@ -223,25 +217,25 @@
   margin-bottom: 20px;
 }
 
-.cart-detail-info h3 {
+.info-cart h3{
   font-size: 20px;
   font-weight: bold;
 }
 
-.cart-detail-info h4 {
+.info-cart h4{
   margin-top: 6px;
   font-size: 20px;
   color: green;
 }
 
-.price-delete{
+.eliminar{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
 }
 
-.total-price{
+.precio-total{
   font-size: 35px;
   color: green;
 }
@@ -257,8 +251,8 @@
 }
 
 
-/* Detail */
-.container-detail {
+
+.detail-contenedor{
   padding: 25px;
   margin: 15px;
   display: flex;
@@ -267,14 +261,52 @@
   box-shadow: 0px 0px 15px 1px rgb(146, 143, 143);
 }
 
-.container-detail img {
+.detail-contenedor img{
   width: 600px;
   padding: 0px 20px 0px 0px;
 }
 
-.container-detail p {
+.detail-contenedor p{
 font-size: 30px;
 padding: 10px 0px 25px 0px;
 }
 
+.formContacto{
+  width: 40%;
+  padding: 1.2em;
+  background: rgb(184, 181, 181);
+  box-shadow: 0px 0px 15px 1px rgb(146, 143, 143);
+}
+
+.formContacto input{
+  width: 100%;
+  height: 30px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+
+
+.btn-env{
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.link-checkout{
+  margin-top: 7px;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid green;
+  padding: 4px 25px;
+  border-radius: 8px;
+}
 
